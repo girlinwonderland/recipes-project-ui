@@ -1,33 +1,40 @@
 import styled from 'styled-components';
 
 const Container = styled.div`
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #f54414;
+    background-image: url('/images/mainPage.jpg');
     background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 `
 
-const MainPaper = styled.div`
-    margin-top: 70px;
-    position: relative;
+const MainBlock = styled.div`
+    margin-top: -70px;
+    margin-right: 600px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 `
 
 const ButtonBlock = styled.div`
+    margin-top: 50px;
     display: flex;
     width: 300px;
     justify-content: space-between;
 `
 
+const ButtonWrapper = styled.div`
+`
+
 export default {
-    MainPaper,
-    Text,
+    MainBlock,
     Container,
-    ButtonBlock
+    ButtonBlock,
+    ButtonWrapper
 }

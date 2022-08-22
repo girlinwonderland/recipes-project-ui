@@ -4,3 +4,12 @@
   height: 100%;
   text-align: center;
 }
+
+#root, body, html {
+  height: 100vh;
+  margin: 0;
+  background-image: url('static/background-2.jpeg');
+  /*background-size: cover;*/
+  /*background-repeat: no-repeat;*/
+  /*background-position: center;*/
+}

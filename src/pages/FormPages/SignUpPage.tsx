@@ -1,5 +1,7 @@
 import { useCallback, useState } from 'react';
-import {useDispatch} from "react-redux";
+import { useDispatch } from 'react-redux';
+import { Button, Input } from '../../components';
+import S from './styled';
 
 export const SignUpPage = () => {
     const [valueLogin, setValueLogin] = useState<string>('');
@@ -21,12 +23,20 @@ export const SignUpPage = () => {
     },[]);
 
     return (
-        <div>
-            <h1>Hello! It's sign up page!</h1>
-            <input value={valueLogin} onChange={onChangeLogin} placeholder="Введите логин" />
-            <input value={valuePassword} onChange={onChangePassword} placeholder="Введите пароль" />
-            <input value={repeatPassword} onChange={onChangeConfirmPassword} placeholder="Повторите пароль" />
-            <button onClick={() => dispatch({ type:'SIGN_UP' })} >Зарегистрироваться</button>
-        </div>
+        <S.Container>
+            <S.MainBlock>
+                <S.Title>Welcome! Let's begin</S.Title>
+                <S.InputWrapper>
+                    <Input value={valueLogin} onChange={onChangeLogin} placeholder="Enter your login" className="animationInp" />
+                </S.InputWrapper>
+                <S.InputWrapper>
+                    <Input value={valuePassword} onChange={onChangePassword} placeholder="Enter your password" className="animationInp" />
+                </S.InputWrapper>
+                <S.InputWrapper>
+                    <Input value={repeatPassword} onChange={onChangeConfirmPassword} placeholder="Repeat your password" className="animationInp" />
+                </S.InputWrapper>
+                <S.ButtonBlock><Button text="Sign Up" onClick={() => dispatch({ type:'SIGN_UP' })} /></S.ButtonBlock>
+            </S.MainBlock>
+        </S.Container>
     )
 }
