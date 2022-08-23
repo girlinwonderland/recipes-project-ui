@@ -26,7 +26,7 @@ export const SignInPage = () => {
                 <S.InputWrapper>
                     <Input value={valuePassword} onChange={onChangePassword} placeholder="Enter your password" className="animationInp" />
                 </S.InputWrapper>
-                <S.ButtonBlock><Button text="Sign Up" onClick={() => dispatch({ type:'SIGN_IN' })} /></S.ButtonBlock>
+                <S.ButtonBlock><Button text="Sign In" onClick={() => dispatch({ type:'SIGN_IN' })} /></S.ButtonBlock>
             </S.MainBlock>
         </S.Container>
     )
