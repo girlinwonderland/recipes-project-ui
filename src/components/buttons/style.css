@@ -1,0 +1,85 @@
+.button {
+    display: inline-block;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    padding: 10px 29px;
+    color: #ffffff;
+    background-color: transparent;
+    border-radius: 4px;
+    border: 2px solid #9f9f9d;
+}
+
+.button:hover {
+    background: #cce98c;
+    opacity: 0.4;
+    color: #455b3d;
+    border: 2px solid #a6c19b;
+    transition: all 0.2s ease;
+}
+
+.button:active {
+    background: #a1bc69;
+    opacity: 0.4;
+    color: #455b3d;
+    border: 2px solid #a6c19b;
+    transition: all 0.2s ease;
+}
+
+.animation {
+    animation: appear 1s forwards;
+    animation-delay: 7.8s;
+    transform: scale(0, 0)
+}
+
+@keyframes appear {
+    0% {
+        transform: scale(0.2, 0.2)
+    }
+    100% {
+        transform: scale(1, 1);
+    }
+}
+
+.loadingContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 18.5px;
+}
+
+.bubble {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #455b3d;
+    display: inline-block;
+    margin-right: 10px;
+    animation: loading 2.5s ease-in-out infinite;
+    box-sizing: border-box;
+}
+
+@keyframes loading {
+    0%, 100% {
+        transform: scale(0.2);
+    }
+    50% {
+        transform: scale(1);
+    }
+}
+
+.bubble:nth-child(0){
+    animation-delay: 0s;
+}
+
+.bubble:nth-child(1){
+    animation-delay: 0.2s;
+}
+
+.bubble:nth-child(2){
+    animation-delay: 0.4s;
+}
+
+.bubble:nth-child(3){
+    animation-delay: 0.6s;
+}

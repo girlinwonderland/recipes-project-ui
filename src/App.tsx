@@ -3,7 +3,7 @@ import { Provider } from 'react-redux';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { SignUpPage, SignInPage, MainPage } from './pages';
 import { Layout } from './layout';
-import store from './redux';
+import store from './redux/store';
 import './App.css';
 
 function App() {

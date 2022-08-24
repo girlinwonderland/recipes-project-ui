@@ -1,0 +1,24 @@
+.input {
+    width: 100%;
+    height: 100%;
+    border: 2px solid #9f9f9d;
+    background-color: #fffefa;
+}
+
+.input:focus {
+    outline-color: #a6c19b;
+}
+
+.animationInp {
+    animation: appearInp 0.5s forwards;
+    transform: scale(0, 0)
+}
+
+@keyframes appearInp {
+    0% {
+        transform: scale(0, 0)
+    }
+    100% {
+        transform: scale(1, 1);
+    }
+}
