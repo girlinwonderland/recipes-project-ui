@@ -1,6 +1,6 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { SignUpPage, SignInPage, MainPage } from './pages';
 import { Layout } from './layout';
 import store from './redux';
@@ -14,7 +14,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Layout />} >
               <Route index element={<MainPage />} />
-              {/*<Route path="success" element={<Navigate to="/" />} />*/}
+              <Route path="signUp/success" element={<Navigate to="/signIn" />} />
               <Route path="signUp" element={<SignUpPage />} />
               <Route path="signIn" element={<SignInPage />} />
               {/*<Route path="myPosts" element={<PersonalPage />} />*/}
