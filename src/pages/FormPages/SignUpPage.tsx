@@ -18,6 +18,8 @@ export const SignUpPage = () => {
     const loading = useSelector(loadingAuthStatus);
     const error = useSelector(errorAuthStatus);
 
+    console.log(auth, loading, error)
+
     useEffect(() => {
         auth && navigate('/signIn')
     }, [auth, navigate]);
