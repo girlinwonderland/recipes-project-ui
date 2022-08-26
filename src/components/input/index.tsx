@@ -1,6 +1,6 @@
 import React from 'react';
-import classNames from 'classnames';
-import './style.css';
+import clsx from 'clsx';
+import styles from './styles.module.css';
 
 interface IInput {
     value: string,
@@ -17,10 +17,13 @@ export const Input: React.FC<IInput> = ({
     className = '',
     type
 }) => {
-    const classes = classNames({ 'input': true, [className]: true });
+    const inputClassNames = clsx(
+        styles['input'],
+        className
+    )
     return (
         <input
-            className={classes}
+            className={inputClassNames}
             value={value}
             onChange={onChange}
             placeholder={placeholder}

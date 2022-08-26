@@ -1,10 +1,11 @@
 import {useCallback, useEffect, useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { signUpRequest } from '../../redux/actions';
-import { Button, Input } from '../../components';
-import { successAuthStatus, loadingAuthStatus, errorAuthStatus } from './selectors';
-import S from './styled';
+import { signUpRequest } from '../../../redux/actions';
+import { Button, Input } from '../../../components';
+import { successAuthStatus, loadingAuthStatus, errorAuthStatus } from '../selectors';
+import styles from '../styles.module.css';
+import S from '../styled';
 
 export const SignUpPage = () => {
     const [valueLogin, setValueLogin] = useState<string>('');
@@ -17,8 +18,6 @@ export const SignUpPage = () => {
     const auth = useSelector(successAuthStatus);
     const loading = useSelector(loadingAuthStatus);
     const error = useSelector(errorAuthStatus);
-
-    console.log(auth, loading, error)
 
     useEffect(() => {
         auth && navigate('/signIn')
@@ -41,19 +40,38 @@ export const SignUpPage = () => {
             <S.MainBlock>
                 <S.Title>Welcome! Let's begin</S.Title>
                 <S.InputWrapper>
-                    <Input value={valueLogin} onChange={onChangeLogin} placeholder="Enter your login" className="animationInp" />
+                    <Input
+                        value={valueLogin}
+                        onChange={onChangeLogin}
+                        placeholder="Enter your login"
+                        className={styles.animationInp}
+                    />
                 </S.InputWrapper>
                 <S.InputWrapper>
-                    <Input value={valuePassword} type="password" onChange={onChangePassword} placeholder="Enter your password" className="animationInp" />
+                    <Input
+                        value={valuePassword}
+                        type="password"
+                        onChange={onChangePassword}
+                        placeholder="Enter your password"
+                        className={styles.animationInp}
+                    />
                 </S.InputWrapper>
                 <S.InputWrapper>
-                    <Input value={repeatPassword} type="password" onChange={onChangeConfirmPassword} placeholder="Repeat your password" className="animationInp" />
+                    <Input
+                        value={repeatPassword}
+                        type="password"
+                        onChange={onChangeConfirmPassword}
+                        placeholder="Repeat your password"
+                        className={styles.animationInp}
+                    />
                 </S.InputWrapper>
                 <S.ButtonBlock>
                     <Button
                         text="Sign Up"
                         onClick={() => dispatch(signUpRequest({ login: valueLogin, password: valuePassword }))}
                         loading={loading}
+                        disable={loading}
+                        className={styles.animationBtn}
                     />
                 </S.ButtonBlock>
             </S.MainBlock>

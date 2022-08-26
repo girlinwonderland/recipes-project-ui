@@ -1,5 +1,6 @@
 import React from 'react';
-import classNames from 'classnames';
+import clsx from 'clsx';
+import styles from './styles.module.css';
 import './style.css';
 
 interface IButton {
@@ -17,16 +18,26 @@ export const Button: React.FC<IButton> = ({
     loading,
     disable
 }) => {
-    const classes = classNames({'button': true, [className]: true,})
+    const btnClassNames = clsx(
+        disable ? styles['disable'] : '',
+        styles['button'],
+        className
+    )
+
     const loadingBlock = (
         <div className="loadingContainer">
-            <div className="bubble"></div>
-            <div className="bubble"></div>
-            <div className="bubble"></div>
+            <div className="bubble" />
+            <div className="bubble" />
+            <div className="bubble" />
         </div>
     )
     return (
-        <button className={classes} onClick={onClick} title={text} >
+        <button
+            className={btnClassNames}
+            onClick={onClick}
+            title={text}
+            disabled={disable}
+        >
             {loading ? loadingBlock : text}
         </button>
     )
