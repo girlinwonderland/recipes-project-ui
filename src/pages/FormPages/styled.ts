@@ -22,14 +22,26 @@ const MainBlock = styled.div`
     align-items: center;
 `
 
-const ButtonBlock = styled.div`
+const InputWrapper = styled.div`
     margin-top: 50px;
-    display: flex;
-    width: 300px;
-    justify-content: space-between;
+    width: 250px;
+    height: 30px;
 `
 
-const ButtonWrapper = styled.div`
+const ButtonBlock = styled.div`
+    margin-top: 50px;
+    width: 250px;
+`
+
+const Title = styled.div`
+    color: #475737;
+    font-size: 46px;
+`
+
+const Warning = styled.div`
+    color: #c3315b;
+    font-size: 20px;
+    margin-top: 25px;
 `
 
 // eslint-disable-next-line import/no-anonymous-default-export
@@ -37,5 +49,7 @@ export default {
     MainBlock,
     Container,
     ButtonBlock,
-    ButtonWrapper
+    InputWrapper,
+    Warning,
+    Title
 }
