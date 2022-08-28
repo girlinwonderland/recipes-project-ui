@@ -38,10 +38,18 @@ const Title = styled.div`
     font-size: 46px;
 `
 
+const Warning = styled.div`
+    color: #c3315b;
+    font-size: 20px;
+    margin-top: 25px;
+`
+
+// eslint-disable-next-line import/no-anonymous-default-export
 export default {
     MainBlock,
     Container,
     ButtonBlock,
     InputWrapper,
+    Warning,
     Title
 }

@@ -7,7 +7,8 @@ interface IInput {
     onChange?:  (event: React.ChangeEvent<HTMLInputElement>) => void,
     placeholder: string
     className?: string,
-    type?: string
+    type?: string,
+    disable?: boolean
 }
 
 export const Input: React.FC<IInput> = ({
@@ -15,6 +16,7 @@ export const Input: React.FC<IInput> = ({
     onChange,
     placeholder,
     className = '',
+    disable,
     type
 }) => {
     const inputClassNames = clsx(
@@ -28,6 +30,7 @@ export const Input: React.FC<IInput> = ({
             onChange={onChange}
             placeholder={placeholder}
             type={type}
+            disabled={disable}
         />
     )
 }

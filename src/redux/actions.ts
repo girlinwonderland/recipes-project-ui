@@ -20,6 +20,8 @@ export const setSignUpSuccess = (auth: boolean) => action(SIGN_UP_SUCCESS, auth)
 
 export const signInRequest = (payload: TRequestFormPayload) => action(SIGN_IN_REQUEST, payload);
 
-export const signInLoading = (loading: boolean) => action(SIGN_IN_LOADING, loading);
+export const setSignInLoading = (loading: boolean) => action(SIGN_IN_LOADING, loading);
 
-export const signInError = (error: boolean) => action(SIGN_IN_ERROR, error);
+export const setSignInError = (error: boolean) => action(SIGN_IN_ERROR, error);
+
+export const setSignInSuccess = (login: boolean) => action(SIGN_IN_SUCCESS, login);

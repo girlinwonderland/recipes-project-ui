@@ -20,18 +20,12 @@ export const loginReducer = (state = initialState, action: TAction) => {
         case Actions.SIGN_IN_LOADING:
             return {
                 ...state,
-                signUp: {
-                    ...state,
-                    loading: action.payload
-                }
+                loading: action.payload
             }
         case Actions.SIGN_IN_ERROR: {
             return {
                 ...state,
-                signUp: {
-                    ...state,
-                    error: action.payload
-                }
+                error: action.payload
             }
         }
         default:

@@ -32,6 +32,7 @@ const ButtonBlock = styled.div`
 const ButtonWrapper = styled.div`
 `
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default {
     MainBlock,
     Container,

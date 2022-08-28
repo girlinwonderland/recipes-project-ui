@@ -1,47 +1,55 @@
-import { useCallback, useState } from 'react';
-import { useDispatch } from 'react-redux';
 import { Button, Input } from '../../../components';
 import styles from '../styles.module.css';
 import S from '../styled';
+import { useLoginFormLogic } from './logic';
 
 export const SignInPage = () => {
-    const [valueLogin, setValueLogin] = useState<string>('');
-    const [valuePassword, setValuePassword] = useState<string>('');
 
-    const dispatch = useDispatch();
-    const onChangeLogin = useCallback((e) => {
-        setValueLogin(e.target.value);
-    },[]);
+    const {
+        title,
+        loginValue,
+        onChangeLogin,
+        disableInputs,
+        passwordValue,
+        onChangePassword,
+        onClick,
+        buttonLoading,
+        buttonDisable,
+        warningText
+    } = useLoginFormLogic();
 
-    const onChangePassword = useCallback((e) => {
-        setValuePassword(e.target.value);
-    },[]);
 
     return (
         <S.Container>
             <S.MainBlock>
-                <S.Title>Hello, welcome back!</S.Title>
+                <S.Title>{title}</S.Title>
+                { warningText && <S.Warning>{warningText}</S.Warning> }
                 <S.InputWrapper>
                     <Input
-                        value={valueLogin}
+                        value={loginValue}
                         onChange={onChangeLogin}
                         placeholder="Enter your login"
                         className={styles.animationInp}
+                        disable={disableInputs}
                     />
                 </S.InputWrapper>
                 <S.InputWrapper>
                     <Input
-                        value={valuePassword}
+                        value={passwordValue}
                         onChange={onChangePassword}
+                        type="password"
                         placeholder="Enter your password"
                         className={styles.animationInp}
+                        disable={disableInputs}
                     />
                 </S.InputWrapper>
                 <S.ButtonBlock>
                     <Button
                         text="Sign In"
-                        onClick={() => dispatch({ type:'SIGN_IN' })}
+                        onClick={onClick}
                         className={styles.animationBtn}
+                        disable={buttonDisable}
+                        loading={buttonLoading}
                     />
                 </S.ButtonBlock>
             </S.MainBlock>
