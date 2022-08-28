@@ -106,162 +106,17 @@
     }
 }
 
-
-.pen {
-    position: absolute;
-    left: 110px;
-    width: 170px;
-    height: 500px;
-    transform: rotate(90deg) scale(1, -1);
-    animation: pen-animation-1 8s linear forwards;
+.animation {
+    animation: appear 1s forwards;
+    animation-delay: 7.8s;
+    transform: scale(0, 0)
 }
 
-@keyframes pen-animation-1 {
+@keyframes appear {
     0% {
-        transform: rotate(90deg) scale(1, -1) translate(-50px, 20px);
-    }
-    2%{
-        transform: rotate(90deg) scale(1, -1) translate(-60px, 30px);
-    }
-
-    5% {
-        transform: rotate(90deg) scale(1, -1) translate(40px, 10px);
-    }
-    7%{
-        transform: rotate(90deg) scale(1, -1) translate(-10px, 40px);
-    }
-    10% {
-        transform: rotate(90deg) scale(1, -1) translate(20px, 100px)
-    }
-    15% {
-        transform: rotate(90deg) scale(1, -1) translate(-10px, 150px)
-    }
-    17% {
-        transform: rotate(90deg) scale(1, -1) translate(10px, 180px)
-    }
-    20% {
-        transform: rotate(90deg) scale(1, -1) translate(-15px, 220px)
-    }
-    25% {
-        transform: rotate(90deg) scale(1, -1) translate(20px, 230px)
-    }
-    30% {
-        transform: rotate(90deg) scale(1, -1) translate(50px, 220px)
-    }
-    35% {
-        transform: rotate(90deg) scale(1, -1) translate(-20px, 250px)
-    }
-    40% {
-        transform: rotate(90deg) scale(1, -1) translate(20px, 300px)
-    }
-    45% {
-        transform: rotate(90deg) scale(1, -1) translate(-10px, 350px)
-    }
-    50% {
-        transform: rotate(90deg) scale(1, -1) translate(-10px, 60px)
-    }
-    52% {
-        transform: rotate(90deg) scale(1, -1) translate(120px, 30px)
-    }
-    55% {
-        transform: rotate(90deg) scale(1, -1) translate(80px, 60px)
-    }
-    60% {
-        transform: rotate(90deg) scale(1, -1) translate(100px, 100px)
-    }
-    65% {
-        transform: rotate(90deg) scale(1, -1) translate(50px, 150px)
-    }
-    67% {
-        transform: rotate(90deg) scale(1, -1) translate(100px, 150px)
-    }
-    70% {
-        transform: rotate(90deg) scale(1, -1) translate(90px, 200px)
-    }
-    73% {
-        transform: rotate(90deg) scale(1, -1) translate(120px, 200px)
-    }
-    75% {
-        transform: rotate(90deg) scale(1, -1) translate(80px, 250px)
-    }
-    77% {
-        transform: rotate(90deg) scale(1, -1) translate(60px, 250px)
-    }
-    80% {
-        transform: rotate(90deg) scale(1, -1) translate(100px, 300px)
-    }
-    83% {
-        transform: rotate(90deg) scale(1, -1) translate(150px, 270px)
-    }
-    85% {
-        transform: rotate(90deg) scale(1, -1) translate(100px, 320px)
-    }
-    90% {
-        transform: rotate(90deg) scale(1, -1) translate(80px, 350px)
-    }
-    95% {
-        transform: rotate(90deg) scale(1, -1) translate(110px, 400px)
+        transform: scale(0.2, 0.2)
     }
     100% {
-        transform: rotate(90deg) scale(1, -1) translate(100px, 450px)
+        transform: scale(1, 1);
     }
-}
-
-.pin {
-    width: 300px;
-    height: 300px;
-    position: absolute;
-    right: 0;
-    top: 10px;
-    animation-duration: 0.5s;
-    animation-name: animate-pin;
-    animation-delay: 8.2s;
-    animation-fill-mode: backwards;
-}
-
-@keyframes animate-pin {
-    0% { opacity: 0; top: -15px }
-    100% { opacity: 1; }
-}
-
-.mixer {
-    width: 50px;
-    height: 50px;
-    position: absolute;
-    left: 0;
-    transform: rotate(45deg);
-}
-
-.rolling-pin {
-    width: 50px;
-    height: 50px;
-    position: absolute;
-    left: -200px;
-    top: 80px;
-}
-
-.apron {
-    width: 50px;
-    height: 50px;
-    position: absolute;
-    left: 70px;
-    top: 20px;
-}
-
-.scapula {
-    width: 50px;
-    height: 50px;
-    position: absolute;
-    transform: rotate(180deg);
-    left: 220px;
-    top: 550px;
-}
-
-.pon {
-    width: 50px;
-    height: 50px;
-    position: absolute;
-    transform: rotate(-180deg);
-    left: -120px;
-    top: 400px;
 }

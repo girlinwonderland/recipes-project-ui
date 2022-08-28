@@ -1,16 +1,13 @@
-import { takeEvery } from 'redux-saga/effects';
+import { takeEvery, all } from 'redux-saga/effects';
 
-export function* workerSaga() {
-    console.log('click from saga')
-}
+import { SIGN_UP_REQUEST, SIGN_IN_REQUEST } from '../actions';
+import { signUpSaga } from './signUp';
+import { signInSaga } from './signIn';
 
-
-
-export function* watchClickSaga() {
-    yield takeEvery('SIGN_UP', workerSaga);
-}
-
-
-export default function* rootSaga() {
-    yield watchClickSaga();
+// eslint-disable-next-line import/no-anonymous-default-export
+export default function* () {
+    yield all([
+        takeEvery(SIGN_IN_REQUEST, signInSaga),
+        takeEvery(SIGN_UP_REQUEST, signUpSaga)
+    ]);
 }

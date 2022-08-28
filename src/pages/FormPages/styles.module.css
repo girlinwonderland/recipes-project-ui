@@ -1,0 +1,27 @@
+.animationInp {
+    animation: appearInp 0.5s forwards;
+    transform: scale(0, 0)
+}
+
+@keyframes appearInp {
+    0% {
+        transform: scale(0, 0)
+    }
+    100% {
+        transform: scale(1, 1);
+    }
+}
+
+.animationBtn {
+    animation: appearBtn 0.5s forwards;
+    transform: scale(0, 0)
+}
+
+@keyframes appearBtn {
+    0% {
+        transform: scale(0.2, 0.2)
+    }
+    100% {
+        transform: scale(1, 1);
+    }
+}

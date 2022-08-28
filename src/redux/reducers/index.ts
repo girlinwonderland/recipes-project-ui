@@ -1,21 +1,13 @@
+import { combineReducers } from 'redux';
+import {authReducer, IAuthStateType } from './auth';
+import { loginReducer, ILoginStateType } from './login';
 
-type IReducer = {
-    auth: boolean,
-    loading: boolean,
-    error: boolean
+export type IRootReducer = {
+    login: ILoginStateType,
+    auth: IAuthStateType
 }
 
-type TAction = {
-    type: string,
-    payload?: any
-}
-
-const initialState: IReducer = {
-    auth: false,
-    error: false,
-    loading: false
-}
-
-export const reducer = (state = initialState, action: TAction): IReducer => {
-    return state;
-}
+export const rootReducer = combineReducers<IRootReducer>({
+    login: loginReducer,
+    auth: authReducer,
+});

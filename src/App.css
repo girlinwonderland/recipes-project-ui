@@ -4,3 +4,11 @@
   height: 100%;
   text-align: center;
 }
+
+#root, body, html {
+  height: 100vh;
+  margin: 0;
+  /*background-size: cover;*/
+  /*background-repeat: no-repeat;*/
+  /*background-position: center;*/
+}
