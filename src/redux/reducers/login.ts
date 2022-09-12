@@ -28,6 +28,12 @@ export const loginReducer = (state = initialState, action: TAction) => {
                 error: action.payload
             }
         }
+        case Actions.SIGN_IN_SUCCESS: {
+            return {
+                ...state,
+                success: action.payload
+            }
+        }
         default:
             return state;
     }

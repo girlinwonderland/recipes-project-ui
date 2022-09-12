@@ -7,7 +7,8 @@ export function* signInSaga({ payload }: ReturnType<typeof signInRequest>) {
     yield put(setSignInLoading(true))
     try {
         // @ts-ignore
-        yield* call(login, payload);
+        const response = yield* call(login, payload);
+        localStorage.setItem('token', response.data.accessToken)
         yield put(setSignInLoading(false));
         yield put(setSignInSuccess(true));
     } catch (error){

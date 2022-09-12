@@ -18,7 +18,6 @@ export const SignInPage = () => {
         warningText
     } = useLoginFormLogic();
 
-
     return (
         <S.Container>
             <S.MainBlock>

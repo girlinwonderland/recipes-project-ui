@@ -1,4 +1,4 @@
-import { IRootReducer } from '../../redux/reducers';
+import { IRootReducer } from './reducers';
 
 export const successAuthStatus = (state: IRootReducer) => state.auth.success;
 

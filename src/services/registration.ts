@@ -1,15 +1,14 @@
-import axios from 'axios';
+import { AxiosResponse } from 'axios';
 import { TRequestFormPayload } from '../redux/types';
+import $api from '../http';
 
-type TRegistrationAnswer = boolean;
+type TRegistrationAnswer = {
+    id: string,
+    login: string,
+    posts: any[]
+}
 
 export const registration = ({
     login,
     password
-}: TRequestFormPayload) => axios.post<TRegistrationAnswer>(
-    'http://localhost:5005/auth/signUp',
-    {
-        password,
-        login
-    }
-)
+}: TRequestFormPayload) => $api.post<AxiosResponse<TRegistrationAnswer>>('/auth/signUp', { password, login })

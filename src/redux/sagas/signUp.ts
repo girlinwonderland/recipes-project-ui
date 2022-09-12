@@ -4,7 +4,7 @@ import { registration } from '../../services';
 
 export function* signUpSaga({ payload }: ReturnType<typeof signUpRequest>) {
 
-    yield put(setSignUpLoading(true))
+    yield put(setSignUpLoading(true));
     try {
         // @ts-ignore
         yield* call(registration, payload);

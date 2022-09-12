@@ -2,7 +2,7 @@ import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { signInRequest } from '../../../redux/actions';
-import { successLoginStatus, loadingLoginStatus, errorLoginStatus, successAuthStatus } from '../selectors';
+import { loadingLoginStatus, errorLoginStatus, successAuthStatus } from '../../../redux/selectors';
 import { TErrorType } from '../types';
 import { ILogicOut } from './types';
 
@@ -11,7 +11,7 @@ export const useLoginFormLogic = (): ILogicOut => {
     const [passwordValue, setPasswordValue] = useState<string>('');
 
     const auth = useSelector(successAuthStatus);
-    const login = useSelector(successLoginStatus);
+    const login = localStorage.getItem('token');
     const loading = useSelector(loadingLoginStatus);
     const error = useSelector(errorLoginStatus);
 

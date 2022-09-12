@@ -2,7 +2,7 @@ import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { signUpRequest } from '../../../redux/actions';
-import { errorAuthStatus, loadingAuthStatus, successAuthStatus } from '../selectors';
+import { errorAuthStatus, loadingAuthStatus, successAuthStatus } from '../../../redux/selectors';
 import { TErrorType } from '../types';
 import { ILogicOut } from './types';
 
@@ -19,10 +19,15 @@ export const useRegistrationFormLogic = (): ILogicOut => {
     const auth = useSelector(successAuthStatus);
     const loading = useSelector(loadingAuthStatus);
     const error = useSelector(errorAuthStatus);
+    const login = localStorage.getItem('token');
 
     useEffect(() => {
         auth && navigate('/signIn');
     }, [auth, navigate]);
+
+    useEffect(() => {
+        login && navigate('/myRecipes');
+    }, [login, navigate]);
 
     const onChangeLogin = useCallback((e) => setLoginValue(e.target.value),[]);
 
@@ -30,7 +35,7 @@ export const useRegistrationFormLogic = (): ILogicOut => {
 
     const onChangeConfirmPassword = useCallback((e) => setConfirmPasswordValue(e.target.value),[]);
 
-    const onSignUp = useCallback(() => {
+    const onSignIn = useCallback(() => {
         dispatch(signUpRequest({ login: loginValue, password: passwordValue }))
     }, [loginValue, passwordValue, dispatch]);
 
@@ -63,7 +68,7 @@ export const useRegistrationFormLogic = (): ILogicOut => {
         onChangePassword,
         confirmPasswordValue,
         onChangeConfirmPassword,
-        onClick: onSignUp,
+        onClick: onSignIn,
         buttonLoading: loading,
         warningText,
         buttonDisable,
