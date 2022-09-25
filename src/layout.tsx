@@ -1,15 +1,13 @@
 import React from 'react';
-import { Outlet } from 'react-router-dom';
+import { Outlet, Link } from 'react-router-dom';
+import { ReactComponent as Logo } from './svg/cookerHat.svg';
 
 export const Layout = () => {
     return (
         <>
-            {/*<header>*/}
-            {/*    <Link to="/">About</Link>*/}
-            {/*    <Link to="/signUp">Sign up</Link>*/}
-            {/*    <Link to="/signIn">Sign in</Link>*/}
-            {/*</header>*/}
-
+            <Link to="/">
+                <Logo width="60px" height="60px" path="/" style={{ position: 'absolute', top: '10', left: '20', zIndex: 1 }} />
+            </Link>
             <Outlet />
         </>
     )

@@ -11,3 +11,5 @@ export const successLoginStatus = (state: IRootReducer) => state.login.success;
 export const loadingLoginStatus = (state: IRootReducer) => state.login.loading;
 
 export const errorLoginStatus = (state: IRootReducer) => state.login.error;
+
+export const recipesData = (state: IRootReducer) => state.recipes.recipes;

@@ -3,7 +3,7 @@ import { useCallback, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Button } from '../../components';
 import { logOut } from '../../redux/actions';
-import { successLoginStatus } from '../../redux/selectors';
+import { successLoginStatus, recipesData } from '../../redux/selectors';
 import { useNavigate } from 'react-router-dom';
 import S from './styled';
 
@@ -17,6 +17,8 @@ export const SinglePage = () => {
     const navigate = useNavigate();
 
     useSelector(successLoginStatus);
+    const recipes = useSelector(recipesData)
+    console.log(recipes)
     const login = localStorage.getItem('token');
 
     useEffect(() => {})
@@ -32,11 +34,12 @@ export const SinglePage = () => {
     }, [login, navigate]);
 
     return (
-        <>
+        <S.Container>
             <S.ButtonWrapper>
-                <Button text="Выход" onClick={onLogout}  />
+                <Button text="Выход" onClick={onLogout} />
             </S.ButtonWrapper>
-            <div>Personal page</div>
-        </>
+            <S.Title>My recipes</S.Title>
+            <S.Add />
+        </S.Container>
     )
 }
