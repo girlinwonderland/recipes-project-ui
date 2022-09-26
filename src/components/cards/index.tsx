@@ -1,10 +1,9 @@
 import React, {useState} from 'react';
 import S from './styled';
-import {useSelector} from "react-redux";
 
 interface ICard {
     title: string,
-    description: string
+    description: string,
 }
 
 export const Card: React.FC<ICard> = React.memo(({
@@ -24,7 +23,7 @@ export const Card: React.FC<ICard> = React.memo(({
             </S.Text>
             <S.Controls>
                 <S.MoreSvg />
-                <S.EditIcon />
+                <S.EditIcon hover={hover} />
             </S.Controls>
         </S.Container>
     )

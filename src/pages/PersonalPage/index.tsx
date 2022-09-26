@@ -1,7 +1,7 @@
 // import { useParams, useNavigate } from 'react-router-dom';
 import { useCallback, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Button } from '../../components';
+import { Button, Card } from '../../components';
 import { logOut } from '../../redux/actions';
 import { successLoginStatus, recipesData } from '../../redux/selectors';
 import { useNavigate } from 'react-router-dom';
@@ -18,7 +18,6 @@ export const SinglePage = () => {
 
     useSelector(successLoginStatus);
     const recipes = useSelector(recipesData)
-    console.log(recipes)
     const login = localStorage.getItem('token');
 
     useEffect(() => {})
@@ -39,6 +38,20 @@ export const SinglePage = () => {
                 <Button text="Выход" onClick={onLogout} />
             </S.ButtonWrapper>
             <S.Title>My recipes</S.Title>
+            <S.Main>
+                {
+                    recipes.length ?
+                        <S.CardsContainer>
+                            {
+                                recipes.map(({ description, title }) => (
+                                    <Card title={title} description={description} />
+                                ))
+                            }
+
+                        </S.CardsContainer>
+                        : <S.Empty />
+                }
+            </S.Main>
             <S.Add />
         </S.Container>
     )

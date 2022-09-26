@@ -1,4 +1,4 @@
-import { Card } from './Card';
+import { Card } from './index';
 import { text } from '@storybook/addon-knobs';
 
 
@@ -10,7 +10,7 @@ export default {
 export const CardStory = () => {
     return (
         <Card
-            title={text('title', 'рецептhgjfgjghjhgjhhhhh')}
+            title={text('title', 'рецепт')}
             description="jhuhyyi fjhgn vhjfyenhgj gfgjhgy gjhuh jhuhjh jjhjhj hjhn hfjjg hufgb jdhtghtrh jthgjdgjd jgkgjhg"
         />
 

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { ReactComponent as More } from '../../svg/more.svg';
+import { ReactComponent as More } from '../../svg/more-2.svg';
 import { ReactComponent as Edit } from '../../svg/edit.svg';
 
 interface IBottom {
@@ -18,6 +18,7 @@ const Container = styled.div`
   cursor: pointer;
   display: flex;
   justify-content: space-between;
+  background-color: white;
 
   &:hover {
     border-color: #475737;
@@ -30,7 +31,7 @@ const Text = styled.div`
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  max-width: 150px;
+  width: 144px;
 `
 
 const Controls = styled.div`
@@ -47,12 +48,13 @@ const Title = styled.div`
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
+    text-align: left;
 `
 
 const MoreSvg = styled(More)`
     width: 20px;
     height: 20px;
-    color: #9f9f9d
+    color: #475737
 `
 
 const Description = styled.div`
@@ -67,19 +69,12 @@ const Description = styled.div`
   color: #78916f;
   //word-wrap:break-word;
   //white-space: break-spaces;
-  &:after{
-    content: "";
-    display: block;
-    width: 16px;
-    height: 16px;
-    background-color: #a1bc69;
-  }
 `
 
-const EditIcon = styled(Edit)`
+const EditIcon = styled(Edit)<IBottom>`
     width: 16px;
     height: 16px;
-    display: inline-block;
+    display: ${({ hover }) => hover ? 'inline-block' : 'none'};
     //position: absolute;
     //right: 15px;
     //bottom: 20px;
