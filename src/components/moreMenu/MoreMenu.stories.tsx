@@ -10,8 +10,7 @@ export default {
 const ITEMS = [{ id:'delete', text: 'Удалить' }];
 
 export const MoreMenuStory = () => {
-    const onClickItem = (id: string) => console.log(id)
-    return <MoreMenu items={ITEMS} onItemClick={onClickItem} />
+    return <MoreMenu items={ITEMS} onItemClick={() => {}} />
 }
 
 MoreMenuStory.story = {

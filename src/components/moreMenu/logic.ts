@@ -1,26 +1,39 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useMemo, useRef, useState } from 'react';
 import { TLogic } from './types';
 
 /** Логика клика по компоненту MoreMenu */
-export const useClickLogic: TLogic = () => {
+export const useClickLogic: TLogic = ({
+    onItemClick
+}) => {
 
-    const [dropdown, setDropdown] = useState(false);
+    const ref = useRef(null);
 
-    const onToggle = useCallback(() => setDropdown(prev => !prev), []);
+    const [anchor, setAnchor] = useState<Element | null>(null);
+
+    const open = useMemo(() => !!anchor, [anchor]);
+
+    const onOpen = useCallback((e) => {
+        e && e.stopPropagation();
+        setAnchor(ref.current);
+    }, [ref]);
 
     const onClose = useCallback((e) => {
-        if (e.target.tagName && e.target.tagName !== 'svg' && e.target.tagName !== 'path'){
-            setDropdown(false);
-        }
+        e.stopPropagation();
+        setAnchor(null);
     }, []);
 
-    useEffect(()=> {
-        document.addEventListener('mousedown', (e) => onClose(e));
-        return () => document.removeEventListener('mousedown', onClose);
-    }, [onClose]);
+    const onClick = useCallback((e) => {
+        e.stopPropagation();
+        onClose(e);
+        onItemClick();
+    }, [onItemClick, onClose])
 
     return {
-        onToggle,
-        dropdown
+        ref,
+        anchor,
+        onOpen,
+        open,
+        onClick,
+        onClose
     }
 }

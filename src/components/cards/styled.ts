@@ -94,7 +94,7 @@ const Bottom = styled.div<IBottom>`
   }
 `
 
-
+// eslint-disable-next-line
 export default {
     Container,
     Title,

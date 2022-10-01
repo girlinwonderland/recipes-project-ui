@@ -13,7 +13,6 @@ const MoreSvg = styled(More)`
 `
 
 const DropDown = styled.div<IDropDown>`
-    display: ${({visible}) => visible ? 'block' : 'none'};
     width: 90px;
     color: #475737;
     background-color: #f8f6f6;
@@ -33,6 +32,7 @@ const Line = styled.div`
     }
 `
 
+// eslint-disable-next-line
 export default {
     MoreSvg,
     DropDown,

@@ -35,6 +35,12 @@ export const recipesReducer = (state = initialState, action: TAction) => {
                 recipes: action.payload
             }
         }
+        case Actions.FILTER_RECIPES: {
+            return {
+                ...state,
+                recipes: state.recipes.filter(item => item.id !== action.payload)
+            }
+        }
         default:
             return state;
     }

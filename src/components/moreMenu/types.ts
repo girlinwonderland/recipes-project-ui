@@ -1,9 +1,19 @@
+import { PopoverOrigin } from '@material-ui/core/Popover';
+
 interface ILogicOut {
-    dropdown: boolean,
-    onToggle: () => void,
+    ref: React.MutableRefObject<null>,
+    anchor: Element | null,
+    open: boolean,
+    onClick: (e: any) => void,
+    onClose: (e: any) => void,
+    onOpen: (e: any) => void
 }
 
-export type TLogic = () => ILogicOut
+interface ILoginIn {
+    onItemClick: () => void
+}
+
+export type TLogic = (p: ILoginIn) => ILogicOut;
 
 type TItems = {
     id: string,
@@ -12,5 +22,7 @@ type TItems = {
 
 export interface IMore {
     items: TItems[],
-    onItemClick: (id: string) => void,
+    onItemClick: () => void,
+    anchorOrigin?: PopoverOrigin,
+    transformOrigin?: PopoverOrigin
 }

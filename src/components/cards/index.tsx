@@ -1,17 +1,28 @@
-import React, {useState} from 'react';
+import React, { useCallback, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { onDeleteRecipe } from '../../redux/actions';
+import { MoreMenu } from '../moreMenu';
 import S from './styled';
 
 interface ICard {
     title: string,
     description: string,
+    id: string
 }
+
+const ITEMS = [{ id:'delete', text: 'Удалить' }];
 
 export const Card: React.FC<ICard> = React.memo(({
     title,
-    description
+    description,
+    id
 }) => {
 
+    const dispatch = useDispatch();
+
     const [hover, setHover] = useState(false);
+
+    const onDeleteCard = useCallback((id: string) => dispatch(onDeleteRecipe(id)), [dispatch])
 
     return (
         <S.Container onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
@@ -22,7 +33,7 @@ export const Card: React.FC<ICard> = React.memo(({
                 </S.Bottom>
             </S.Text>
             <S.Controls>
-                <S.MoreSvg />
+                <MoreMenu items={ITEMS} onItemClick={() => onDeleteCard(id)} />
                 <S.EditIcon hover={hover} />
             </S.Controls>
         </S.Container>

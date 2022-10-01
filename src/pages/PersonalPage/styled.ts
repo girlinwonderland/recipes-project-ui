@@ -51,7 +51,7 @@ const Empty = styled(EmptyBox)`
 const CardsContainer = styled.div`
     display: flex;
     flex-wrap: wrap;
-    gap: 3rem;
+    gap: 3.5rem;
 `
 
 // eslint-disable-next-line import/no-anonymous-default-export

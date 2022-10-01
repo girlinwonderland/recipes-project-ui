@@ -17,7 +17,7 @@ export const SinglePage = () => {
     const navigate = useNavigate();
 
     useSelector(successLoginStatus);
-    const recipes = useSelector(recipesData)
+    const recipes = useSelector(recipesData);
     const login = localStorage.getItem('token');
 
     useEffect(() => {})
@@ -43,11 +43,10 @@ export const SinglePage = () => {
                     recipes.length ?
                         <S.CardsContainer>
                             {
-                                recipes.map(({ description, title }) => (
-                                    <Card title={title} description={description} />
+                                recipes.map(({ description, title, id }) => (
+                                    <Card key={id} title={title} description={description} id={id} />
                                 ))
                             }
-
                         </S.CardsContainer>
                         : <S.Empty />
                 }

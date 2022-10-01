@@ -15,6 +15,8 @@ export const RECIPES_REQUEST = 'RECIPES_REQUEST';
 export const RECIPES_LOADING = 'RECIPES_LOADING';
 export const RECIPES_ERROR = 'RECIPES_ERROR';
 export const RECIPES_DATA = 'RECIPES_DATA';
+export const RECIPES_DELETE = 'RECIPES_DELETE';
+export const FILTER_RECIPES = 'FILTER';
 
 export const signUpRequest = (payload: TRequestFormPayload) => action(SIGN_UP_REQUEST, payload);
 
@@ -29,6 +31,10 @@ export const signInRequest = (payload: TRequestFormPayload) => action(SIGN_IN_RE
 export const setSignInLoading = (loading: boolean) => action(SIGN_IN_LOADING, loading);
 
 export const setSignInError = (error: boolean) => action(SIGN_IN_ERROR, error);
+
+export const onDeleteRecipe = (id: string) => action(RECIPES_DELETE, id);
+
+export const onFilterRecipes = (id: string) => action(FILTER_RECIPES, id,)
 
 export const setSignInSuccess = (login: boolean) => action(SIGN_IN_SUCCESS, login);
 
