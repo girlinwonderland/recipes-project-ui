@@ -8,9 +8,10 @@ export function* userRecipes() {
     try {
         // @ts-ignore
         const response = yield* call(recipes);
-        console.log(response)
         const posts = response.data.user.posts;
-        const data = posts.length ? posts.map(({ id, title, description }: any) => ({ id, title, description })) : []
+        console.log(posts)
+        const data = posts.length ? posts.map(({ id, title, description, favourite }: any) =>
+            ({ id, title, description, favourite })) : []
 
         yield put(setRecipesData(data));
         yield put(setRecipesLoading(false));

@@ -16,5 +16,6 @@ export type TPost = {
     title: string,
     description: string,
     id: string,
-    userId: string
+    userId: string,
+    favourite: boolean
 }

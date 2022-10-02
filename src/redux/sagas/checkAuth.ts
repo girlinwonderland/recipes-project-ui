@@ -9,11 +9,12 @@ export function* checkAuth() {
         // @ts-ignore
         const response = yield* call(checkauth);
         localStorage.setItem('token', response.data.accessToken)
-        const modified = response.data.user.posts.map(({ _id, title, description, userId }: any) => ({
+        const modified = response.data.user.posts.map(({ _id, title, description, userId, favourite }: any) => ({
             id: _id,
             title,
             description,
-            userId
+            userId,
+            favourite
         }))
         yield put(setRecipesData(modified))
         yield put(setSignInLoading(false));

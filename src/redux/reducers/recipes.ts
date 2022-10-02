@@ -1,4 +1,5 @@
 import { ActionType } from 'typesafe-actions';
+import produce from 'immer';
 import * as Actions from '../actions';
 import { TPost } from '../types';
 
@@ -40,6 +41,18 @@ export const recipesReducer = (state = initialState, action: TAction) => {
                 ...state,
                 recipes: state.recipes.filter(item => item.id !== action.payload)
             }
+        }
+        case Actions.RECIPES_DATA_FAV: {
+            return produce(state, (draft) => {
+                const index: number = draft.recipes.findIndex((item) => action.payload.id === item.id);
+                const element = draft.recipes.find((item) => action.payload.id === item.id);
+                if (element){
+                    draft.recipes[index] = {
+                        ...element,
+                        favourite: action.payload.like
+                    }
+                }
+            })
         }
         default:
             return state;

@@ -1,9 +1,11 @@
 import styled from 'styled-components';
 import { ReactComponent as More } from '../../svg/more-2.svg';
 import { ReactComponent as Edit } from '../../svg/edit.svg';
+import { ReactComponent as Heart } from '../../svg/heart.svg';
 
 interface IBottom {
-    hover?: boolean
+    hover?: boolean,
+    fav?: boolean
 }
 
 const Container = styled.div`
@@ -67,18 +69,21 @@ const Description = styled.div`
   -webkit-line-clamp: 3;
   overflow: hidden;
   color: #78916f;
-  //word-wrap:break-word;
-  //white-space: break-spaces;
 `
 
 const EditIcon = styled(Edit)<IBottom>`
     width: 16px;
     height: 16px;
     display: ${({ hover }) => hover ? 'inline-block' : 'none'};
-    //position: absolute;
-    //right: 15px;
-    //bottom: 20px;
     color: #475737
+`
+
+const HeartIcon = styled(Heart)<IBottom>`
+    display: inline-block;
+    color: ${({ fav }) => fav ? 'red' : 'white'};
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
 `
 
 const Bottom = styled.div<IBottom>`
@@ -103,5 +108,6 @@ export default {
     EditIcon,
     Bottom,
     Controls,
-    Text
+    Text,
+    HeartIcon
 }

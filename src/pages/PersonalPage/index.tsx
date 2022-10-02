@@ -32,6 +32,8 @@ export const SinglePage = () => {
         !login && navigate('/');
     }, [login, navigate]);
 
+    console.log(recipes)
+
     return (
         <S.Container>
             <S.ButtonWrapper>
@@ -43,8 +45,15 @@ export const SinglePage = () => {
                     recipes.length ?
                         <S.CardsContainer>
                             {
-                                recipes.map(({ description, title, id }) => (
-                                    <Card key={id} title={title} description={description} id={id} />
+                                recipes.map(({ description, title, id, favourite, userId }) => (
+                                    <Card
+                                        key={id}
+                                        title={title}
+                                        description={description}
+                                        id={id}
+                                        favourite={favourite}
+                                        userId={userId}
+                                    />
                                 ))
                             }
                         </S.CardsContainer>

@@ -17,6 +17,8 @@ export const RECIPES_ERROR = 'RECIPES_ERROR';
 export const RECIPES_DATA = 'RECIPES_DATA';
 export const RECIPES_DELETE = 'RECIPES_DELETE';
 export const FILTER_RECIPES = 'FILTER';
+export const RECIPES_EDIT = 'EDIT';
+export const RECIPES_DATA_FAV = 'RECIPES_DATA_FAV';
 
 export const signUpRequest = (payload: TRequestFormPayload) => action(SIGN_UP_REQUEST, payload);
 
@@ -49,3 +51,7 @@ export const setRecipesError = (error: boolean) => action(RECIPES_ERROR, error);
 export const setRecipesData = (data: TPost[]) => action(RECIPES_DATA, data);
 
 export const logOut = () => action(LOGOUT);
+
+export const onEditRecipes = ({ favourite, title, description, userId, id }: TPost) => action(RECIPES_EDIT, { favourite, title, description, userId, id });
+
+export const onToggleFavourite = (id: string, like: boolean) => action(RECIPES_DATA_FAV, { id, like })
