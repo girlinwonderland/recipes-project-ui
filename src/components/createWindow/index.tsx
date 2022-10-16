@@ -23,7 +23,7 @@ export const CreatorWindow: React.FC<ICreator> = React.memo(({
         <S.Wrapper>
             <S.Title>
                 <S.Text>Title:</S.Text>
-                <S.Input value={title} onChange={e => onChangeTitle(e.target.value)} />
+                <S.Input value={title} onChange={e => onChangeTitle(e.target.value)} type="text" autoFocus />
             </S.Title>
             <S.Description>
                 <S.Text>Description:</S.Text>
