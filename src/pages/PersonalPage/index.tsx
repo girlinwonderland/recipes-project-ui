@@ -1,7 +1,7 @@
 // import { useParams, useNavigate } from 'react-router-dom';
-import { useCallback, useEffect } from 'react';
+import {useCallback, useEffect, useMemo, useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Button, Card } from '../../components';
+import { Button, Card, FilterPanel } from '../../components';
 import { logOut } from '../../redux/actions';
 import { successLoginStatus, recipesData } from '../../redux/selectors';
 import { useNavigate } from 'react-router-dom';
@@ -32,7 +32,23 @@ export const SinglePage = () => {
         !login && navigate('/');
     }, [login, navigate]);
 
-    console.log(recipes)
+    const [searchText, setSearchText] = useState('');
+
+    const [filter, setFilter] = useState(false);
+
+    const onChangeFilter = useCallback(() => setFilter(prev => !prev), []);
+
+    const onChangeSearch = useCallback((e) => setSearchText(e.target.value), []);
+
+    const filteredBySearchRecipes = useMemo(() => {
+        return searchText.length ? recipes.filter(({ title }) => title.toLowerCase().includes(searchText.toLowerCase())) : recipes
+    }, [recipes, searchText])
+
+    const filteredRecipes = useMemo(() => {
+        return filteredBySearchRecipes.filter(({ favourite }) => filter ? favourite : true)
+    }, [filter, filteredBySearchRecipes])
+
+    console.log(filteredRecipes)
 
     return (
         <S.Container>
@@ -40,12 +56,20 @@ export const SinglePage = () => {
                 <Button text="Выход" onClick={onLogout} />
             </S.ButtonWrapper>
             <S.Title>My recipes</S.Title>
+            <S.Search>
+                <FilterPanel
+                    search={searchText}
+                    onChangeSearch={onChangeSearch}
+                    onChangeFilter={onChangeFilter}
+                    isActiveFilter={filter}
+                />
+            </S.Search>
             <S.Main>
                 {
-                    recipes.length ?
+                    filteredRecipes.length ?
                         <S.CardsContainer>
                             {
-                                recipes.map(({ description, title, id, favourite, userId }) => (
+                                filteredRecipes.map(({ description, title, id, favourite, userId }) => (
                                     <Card
                                         key={id}
                                         title={title}

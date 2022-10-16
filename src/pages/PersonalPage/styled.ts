@@ -23,6 +23,12 @@ const Title = styled.div`
     color: #475737
 `
 
+const Search = styled.div`
+    margin-top: 70px;
+    padding: 0 100px;
+    //width: 1024px;
+`
+
 const Add = styled(AddSvg)`
     position: absolute;
     bottom: 90px;
@@ -63,5 +69,6 @@ export default {
     Main,
     CardsContainer,
     EmptyContainer,
-    Empty
+    Empty,
+    Search
 }

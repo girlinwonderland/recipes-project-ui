@@ -1,0 +1,13 @@
+.animationInp {
+    animation: appearInp 0.5s forwards;
+    transform: scale(0, 0)
+}
+
+@keyframes appearInp {
+    0% {
+        transform: scale(0, 0)
+    }
+    100% {
+        transform: scale(1, 1);
+    }
+}
